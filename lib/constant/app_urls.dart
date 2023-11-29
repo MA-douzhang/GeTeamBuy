@@ -40,6 +40,7 @@ class AppUrls{
   static const String MINE_ORDERS=BASE_URL+'/order/list';//我的订单
   static const String MINE_ORDER_DETAIL=BASE_URL+"/order/detail";//订单详情
   static const String MINE_ORDER_PAY=BASE_URL+"/order/pay";//订单支付
+  static const String MINE_ORDER_CONFIRM=BASE_URL+"/order/confirm";//订单支付
   static const String MINE_ORDER_CANCEL=BASE_URL+"/order/cancel";//取消订单
   static const String MINE_ORDER_DELETE=BASE_URL+"/order/delete";//取消订单
   static const String SEARCH_GOODS=BASE_URL+'/search/helper';//商品搜索

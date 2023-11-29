@@ -34,7 +34,6 @@ class _GuidePageState extends State<GuidePage> {
                   offstage: !_showButton,
                   child: Center(
                       child: TextButton(
-                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.COLOR_FF5722)),
                         onPressed: () {
                       NavigatorUtil.goMallMainPage(context);
                     },

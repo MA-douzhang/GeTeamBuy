@@ -10,6 +10,7 @@ import '../../../constant/app_dimens.dart';
 import '../../../constant/app_strings.dart';
 import '../../../constant/text_style.dart';
 import '../../../model/goods_entity.dart';
+import '../../../utils/navigator_util.dart';
 import '../../../utils/refresh_state_util.dart';
 import '../../../view_model/page_state.dart';
 import '../../../view_model/search_goods_view_model.dart';
@@ -207,6 +208,7 @@ class _SearchGoodsPageState extends State<SearchGoodsPage> {
         searchGoodsViewModel, _onRefresh);
   }
 
+  ///显示发布时间
   _showPublishTimeDialog() {
     _focusNode.unfocus();
     _searchGoodsViewModel.setPublishTimeCondition();
@@ -261,6 +263,7 @@ class _SearchGoodsPageState extends State<SearchGoodsPage> {
     });
   }
 
+  ///显示价格时间
   _showPriceDialog() {
     _focusNode.unfocus();
     _searchGoodsViewModel.setPriceCondition();
@@ -315,6 +318,11 @@ class _SearchGoodsPageState extends State<SearchGoodsPage> {
     });
   }
 
+  ///商品详情跳转
+  _goGoodsDetail(BuildContext context, int goodsId) {
+    NavigatorUtil.goGoodsDetails(context, goodsId);
+  }
+
   Widget _goodsWidget() {
     return GridView.builder(
         shrinkWrap: true,
@@ -324,11 +332,13 @@ class _SearchGoodsPageState extends State<SearchGoodsPage> {
             crossAxisCount: 2, childAspectRatio: 0.9),
         itemBuilder: (BuildContext context, int index) {
           return GoodsWidget(
-              _searchGoodsViewModel.goods?[index] ?? GoodsEntity(), (value) {});
+              _searchGoodsViewModel.goods?[index] ?? GoodsEntity(), (value) {
+            _goGoodsDetail(context, value);
+          });
         });
   }
 
-  _onRefresh()  {
+  _onRefresh() {
     _pageIndex = 1;
     _searchGoodsViewModel.searchGoods(_keyController.text.toString(),
         _pageIndex, _pageSize, _sortName, _orderType);
@@ -349,4 +359,3 @@ class _SearchGoodsPageState extends State<SearchGoodsPage> {
         .then((value) => Navigator.pop(context));
   }
 }
-

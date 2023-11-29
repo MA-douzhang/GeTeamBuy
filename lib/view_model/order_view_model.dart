@@ -83,4 +83,16 @@ class OrderViewModel extends BaseViewModel {
     });
     return result;
   }
+  ///确认收货
+  Future<bool> confirmOrder(int orderId) async {
+    bool result = false;
+    var parameters = {AppParameters.ORDER_ID: orderId};
+    await _mineService.confirmOrder(parameters).then((response) {
+      result = response?.isSuccess ?? false;
+      if (!result) {
+        ToastUtil.showToast(response.message ?? '');
+      }
+    });
+    return result;
+  }
 }

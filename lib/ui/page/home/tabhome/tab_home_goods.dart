@@ -10,7 +10,7 @@ class TabHomeGoods extends StatelessWidget {
   List<GoodsEntity> productList;
   String title;
 
-  TabHomeGoods(this.title, this.productList);
+  TabHomeGoods(this.title, this.productList, {super.key});
 
   @override
   Widget build(BuildContext context) {

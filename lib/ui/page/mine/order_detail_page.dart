@@ -143,7 +143,7 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                           style: FMTextStyle.color_333333_size_42,
                         ),
                         onPressed: () =>
-                            _payDialog(orderDetailEntity?.orderInfo?.id ?? 0),
+                            _confirmDialog(orderDetailEntity?.orderInfo?.id ?? 0),
                       ),
                     ],
                   )),
@@ -430,6 +430,43 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
           );
         });
   }
+  ///确认收货
+  _confirmDialog(int orderId) {
+    showDialog(
+        context: context,
+        barrierDismissible: false,
+        builder: (BuildContext context) {
+          return AlertDialog(
+            title: Text(
+              AppStrings.TIPS,
+              style: FMTextStyle.color_333333_size_48,
+            ),
+            content: Text(
+              AppStrings.MINE_ORDER_CONFIRM_TIPS,
+              style: FMTextStyle.color_333333_size_42,
+            ),
+            actions: <Widget>[
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                  },
+                  child: Text(
+                    AppStrings.CANCEL,
+                    style: FMTextStyle.color_ff5722_size_42,
+                  )),
+              TextButton(
+                  onPressed: () {
+                    Navigator.pop(context);
+                    _confirmOrder(orderId);
+                  },
+                  child: Text(
+                    AppStrings.CONFIRM,
+                    style: FMTextStyle.color_333333_size_42,
+                  )),
+            ],
+          );
+        });
+  }
   _deleteOrder(int orderId) {
     _orderViewModel.deleteOrder(orderId).then((value) {
       if (value) {
@@ -450,6 +487,15 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
   ///支付订单
   _payOrder(int orderId) {
     _orderViewModel.payOrder(orderId).then((value) {
+      if (value) {
+        orderEventBus.fire(OrderRefreshEvent());
+        Navigator.pop(context);
+      }
+    });
+  }
+  ///确认收货
+  _confirmOrder(int orderId) {
+    _orderViewModel.confirmOrder(orderId).then((value) {
       if (value) {
         orderEventBus.fire(OrderRefreshEvent());
         Navigator.pop(context);

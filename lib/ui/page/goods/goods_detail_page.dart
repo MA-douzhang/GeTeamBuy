@@ -22,7 +22,6 @@ import '../../widgets/divider_line.dart';
 import '../../widgets/view_model_state_widget.dart';
 import 'goods_detail_swiper.dart';
 
-
 class GoodsDetailPage extends StatefulWidget {
   final int _goodsId;
 
@@ -118,9 +117,14 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                       left: ScreenUtil().setWidth(AppDimens.DIMENS_30),
                       right: ScreenUtil().setWidth(AppDimens.DIMENS_30)),
                   child: TextButton(
-                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.COLOR_FF5722)),
+                    style: ButtonStyle(
+                        backgroundColor:
+                            MaterialStateProperty.all(AppColors.COLOR_FF5722)),
                     onPressed: () => openBottomSheet(
-                        context, _goodsDetailViewModel?.goodsDetailEntity ?? GoodsDetailEntity(), 1),
+                        context,
+                        _goodsDetailViewModel?.goodsDetailEntity ??
+                            GoodsDetailEntity(),
+                        1),
                     child: Text(AppStrings.ADD_CART,
                         style: FMTextStyle.color_ffffff_size_42),
                   ),
@@ -134,9 +138,14 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                     margin: EdgeInsets.only(
                         right: ScreenUtil().setWidth(AppDimens.DIMENS_30)),
                     child: TextButton(
-                      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.COLOR_FF5722)),
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              AppColors.COLOR_FF5722)),
                       onPressed: () => openBottomSheet(
-                          context, _goodsDetailViewModel.goodsDetailEntity ?? GoodsDetailEntity(), 2),
+                          context,
+                          _goodsDetailViewModel.goodsDetailEntity ??
+                              GoodsDetailEntity(),
+                          2),
                       child: Text(AppStrings.BUY,
                           style: FMTextStyle.color_ffffff_size_42),
                     ))),
@@ -160,7 +169,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
         child: SingleChildScrollView(
             child: Column(
           children: <Widget>[
-            GoodsDetailSwiper(_goodsDetailViewModel?.goodsDetailEntity ?? GoodsDetailEntity()),
+            GoodsDetailSwiper(_goodsDetailViewModel?.goodsDetailEntity ??
+                GoodsDetailEntity()),
             DividerLineView(
               height: AppDimens.DIMENS_6,
             ),
@@ -180,7 +190,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                     padding: EdgeInsets.only(
                         top: ScreenUtil().setHeight(AppDimens.DIMENS_20)),
                   ),
-                  Text(goodsDetailViewModel.goodsDetailEntity?.info?.brief ?? '',
+                  Text(
+                      goodsDetailViewModel.goodsDetailEntity?.info?.brief ?? '',
                       style: FMTextStyle.color_999999_size_36),
                   Padding(
                     padding: EdgeInsets.only(
@@ -208,7 +219,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                   top: ScreenUtil().setHeight(AppDimens.DIMENS_10)),
             ),
             goodsDetailViewModel.goodsDetailEntity?.attribute == null ||
-                    goodsDetailViewModel.goodsDetailEntity?.attribute?.length == 0
+                    goodsDetailViewModel.goodsDetailEntity?.attribute?.length ==
+                        0
                 ? Divider()
                 : Container(
                     color: AppColors.COLOR_FFFFFF,
@@ -220,7 +232,9 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                           padding: EdgeInsets.only(
                               top: ScreenUtil().setWidth(AppDimens.DIMENS_20)),
                         ),
-                        _attributeView(goodsDetailViewModel?.goodsDetailEntity ??GoodsDetailEntity()),
+                        _attributeView(
+                            goodsDetailViewModel?.goodsDetailEntity ??
+                                GoodsDetailEntity()),
                       ],
                     ),
                   ),
@@ -237,7 +251,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                           padding: EdgeInsets.only(
                               top: ScreenUtil().setHeight(AppDimens.DIMENS_20)),
                         ),
-                        _issueView(goodsDetailViewModel?.goodsDetailEntity ?? GoodsDetailEntity()),
+                        _issueView(goodsDetailViewModel?.goodsDetailEntity ??
+                            GoodsDetailEntity()),
                       ],
                     ),
                   ),
@@ -252,7 +267,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
         shrinkWrap: true,
         itemCount: goodsDetail.attribute?.length ?? 0,
         itemBuilder: (BuildContext context, int index) {
-          return _attributeItemView(goodsDetail.attribute?[index] ?? GoodsDetailAttribute());
+          return _attributeItemView(
+              goodsDetail.attribute?[index] ?? GoodsDetailAttribute());
         });
   }
 
@@ -291,7 +307,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
         shrinkWrap: true,
         itemCount: goodsDetail.issue?.length ?? 0,
         itemBuilder: (BuildContext context, int index) {
-          return _issueItemView(goodsDetail.issue?[index] ?? GoodsDetailIssue());
+          return _issueItemView(
+              goodsDetail.issue?[index] ?? GoodsDetailIssue());
         });
   }
 
@@ -302,7 +319,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Text(issue?.question ?? '', style: FMTextStyle.color_333333_size_42),
+            Text(issue?.question ?? '',
+                style: FMTextStyle.color_333333_size_42),
             Padding(
               padding: EdgeInsets.only(
                   top: ScreenUtil().setHeight(AppDimens.DIMENS_20)),
@@ -337,7 +355,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                             ScreenUtil().setWidth(AppDimens.DIMENS_180),
                             ScreenUtil().setWidth(AppDimens.DIMENS_180),
                             _goodsDetailViewModel
-                                .goodsDetailEntity?.info?.gallery?.first ?? ''),
+                                    .goodsDetailEntity?.info?.gallery?.first ??
+                                ''),
                         Padding(
                             padding: EdgeInsets.only(
                                 left: ScreenUtil()
@@ -355,8 +374,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                                   top: ScreenUtil()
                                       .setHeight(AppDimens.DIMENS_20)),
                             ),
-                            Text(
-                              'Hhdh',
+                            Text('Hhdh',
                                 // AppStrings.ALREAD_SELECTED +
                                 //     _goodsDetailViewModel
                                 //         .goodsDetailEntity
@@ -397,7 +415,8 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                         child: Wrap(
                             spacing: ScreenUtil().setWidth(AppDimens.DIMENS_20),
                             children: _specificationsWidget(
-                                goodsDetailEntity.specificationList ?? [], data)),
+                                goodsDetailEntity.specificationList ?? [],
+                                data)),
                       );
                     }, selector:
                         (BuildContext context, GoodsDetailViewModel model) {
@@ -415,15 +434,16 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                         children: [
                           Text(AppStrings.NUMBER,
                               style: FMTextStyle.color_333333_size_42),
+                          Text("$_number"),
                           Expanded(
                             child: Container(
                               margin: EdgeInsets.all(
                                   ScreenUtil().setWidth(AppDimens.DIMENS_30)),
                               alignment: Alignment.centerRight,
-                              child: CartNumberView(1, (number) {
-                                _number = number;
-                                print(number);
-                              }),
+                              child:
+                                  CartNumberView(_number, (number){
+                                    _number=number;
+                                  }),
                             ),
                           ),
                         ],
@@ -437,7 +457,9 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                       height: ScreenUtil().setHeight(AppDimens.DIMENS_120),
                       width: double.infinity,
                       child: TextButton(
-                        style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.COLOR_FF5722)),
+                        style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                                AppColors.COLOR_FF5722)),
                         onPressed: () => showType == 1 ? _addCart() : _buy(),
                         // shape: RoundedRectangleBorder(
                         //     borderRadius: BorderRadius.all(
@@ -514,7 +536,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
 
   List<Widget> _specificationsWidget(
       List<GoodsDetailSpecificationlist> specifications, int specificationId) {
-    List<Widget> specificationsWidget =[];
+    List<Widget> specificationsWidget = [];
     specifications.forEach((element) {
       specificationsWidget.add(Container(
         child: ChoiceChip(
@@ -545,5 +567,12 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
       ));
     });
     return specificationsWidget;
+  }
+
+  getGoodsNum(number) {
+    setState(() {
+      _number = number;
+      print("_number");
+    });
   }
 }

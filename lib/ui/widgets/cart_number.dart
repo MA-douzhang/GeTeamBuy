@@ -4,13 +4,13 @@ import '../../../constant/app_dimens.dart';
 import '../../../constant/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-typedef OnNumberChange(int number);
+typedef OnNumberChange = Function(int number);
 
 class CartNumberView extends StatefulWidget {
   final OnNumberChange onNumberChange;
-  final  _number;
+  final _number;
 
-  CartNumberView(this._number, this.onNumberChange);
+  const CartNumberView(this._number, this.onNumberChange, {super.key});
 
   @override
   _CartNumberViewState createState() => _CartNumberViewState();
@@ -94,6 +94,7 @@ class _CartNumberViewState extends State<CartNumberView> {
   }
 
   _add() {
+    debugPrint("加号键");
     widget.onNumberChange(widget._number + 1);
   }
 }

@@ -45,7 +45,7 @@ class CartViewModel extends BaseViewModel {
         pageState = _cartEntity?.cartList?.length == 0
             ? PageState.empty
             : PageState.hasData;
-        _isShowBottomView = (_cartEntity?.cartList?.length ?? 0) > 0 ;
+        _isShowBottomView = (_cartEntity?.cartList?.length ?? 0) > 0;
         notifyListeners();
       } else {
         pageState = PageState.error;
@@ -57,7 +57,7 @@ class CartViewModel extends BaseViewModel {
   bool _checkedAll() {
     for (int i = 0; i < (_cartEntity?.cartList?.length ?? 0); i++) {
       if (_cartEntity?.cartList?[i]?.checked == null ||
-          !(_cartEntity?.cartList?[i]?.checked ?? false) ) {
+          !(_cartEntity?.cartList?[i]?.checked ?? false)) {
         return false;
       }
     }
@@ -89,7 +89,8 @@ class CartViewModel extends BaseViewModel {
     };
     _cartService.updateCart(parameters).then((response) {
       if (response.isSuccess ?? false) {
-        CartEntity cartEntity = CartEntity.fromJson(_cartEntity?.toJson() ?? {});
+        CartEntity cartEntity =
+            CartEntity.fromJson(_cartEntity?.toJson() ?? {});
         cartEntity.cartList?[index].number = number;
         _cartEntity = cartEntity;
         notifyListeners();
@@ -97,6 +98,10 @@ class CartViewModel extends BaseViewModel {
         ToastUtil.showToast(response.message ?? '');
       }
     });
+  }
+
+  updateGoodsItem() {
+    notifyListeners();
   }
 
   checkCartItem(int productId, bool isCheck) {

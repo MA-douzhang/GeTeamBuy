@@ -410,4 +410,28 @@ class MineService {
     }
     return jsonResult;
   }
+
+  ///确认收货
+  Future<JsonResult<dynamic>> confirmOrder(
+      Map<String, dynamic> parameters) async {
+    JsonResult<dynamic> jsonResult = JsonResult<dynamic>();
+    try {
+      var response = await HttpUtil.instance.post(
+        AppUrls.MINE_ORDER_CONFIRM,
+        parameters: parameters,
+      );
+      if (response[AppStrings.ERR_NO] == 0) {
+        jsonResult.isSuccess = true;
+      } else {
+        jsonResult.isSuccess = false;
+        jsonResult.message = response[AppStrings.ERR_MSG] != null
+            ? response[AppStrings.ERR_MSG]
+            : AppStrings.SERVER_EXCEPTION;
+      }
+    } catch (e) {
+      jsonResult.isSuccess = false;
+      jsonResult.message = AppStrings.SERVER_EXCEPTION;
+    }
+    return jsonResult;
+  }
 }

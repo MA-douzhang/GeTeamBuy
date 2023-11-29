@@ -37,9 +37,9 @@ class GoodsWidget extends StatelessWidget {
                           right: ScreenUtil().setWidth(AppDimens.DIMENS_20)),
                       child: Text(
                           _goodsEntity.name ?? '',
-                          maxLines: 1,
+                          maxLines: 5,
                           overflow: TextOverflow.ellipsis,
-                          style:FMTextStyle.color_333333_size_42
+                          style:FMTextStyle.color_333333_size_26
                       ),
                     ),
                     Padding(
@@ -47,9 +47,9 @@ class GoodsWidget extends StatelessWidget {
                             top: ScreenUtil().setHeight(AppDimens.DIMENS_20))),
                     Text(
                         "${AppStrings.DOLLAR}${_goodsEntity.retailPrice}",
-                        maxLines: 1,
+                        maxLines: 5,
                         overflow: TextOverflow.ellipsis,
-                        style: FMTextStyle.color_ff5722_size_42
+                        style: FMTextStyle.color_ff5722_size_36
                     ),
                   ],
                 )),
