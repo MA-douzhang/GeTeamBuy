@@ -342,6 +342,9 @@ class _TabMinePageState extends State<TabMinePage> {
         width: double.infinity,
         height: ScreenUtil().setHeight(AppDimens.DIMENS_120),
         child: TextButton(
+          style: ButtonStyle(
+              backgroundColor: MaterialStateProperty.all(
+                  AppColors.COLOR_FF5722)),
           onPressed: () => _logout(),
           child:
               Text(AppStrings.LOGOUT, style: FMTextStyle.color_ffffff_size_42),

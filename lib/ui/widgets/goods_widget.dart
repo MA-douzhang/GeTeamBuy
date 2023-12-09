@@ -44,12 +44,12 @@ class GoodsWidget extends StatelessWidget {
                     ),
                     Padding(
                         padding: EdgeInsets.only(
-                            top: ScreenUtil().setHeight(AppDimens.DIMENS_20))),
+                            top: ScreenUtil().setHeight(AppDimens.DIMENS_1))),
                     Text(
                         "${AppStrings.DOLLAR}${_goodsEntity.retailPrice}",
                         maxLines: 5,
                         overflow: TextOverflow.ellipsis,
-                        style: FMTextStyle.color_ff5722_size_36
+                        style: FMTextStyle.color_ff5722_size_26
                     ),
                   ],
                 )),

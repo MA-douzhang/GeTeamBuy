@@ -88,7 +88,7 @@ class TabHomeSpecial extends StatelessWidget {
                       left: ScreenUtil().setWidth(AppDimens.DIMENS_20),
                       bottom: ScreenUtil().setWidth(AppDimens.DIMENS_20)),
                   child: Text(AppStrings.DOLLAR + "${projectSelections.price}",
-                      style: FMTextStyle.color_ff5722_size_36)),
+                      style: FMTextStyle.color_ff5722_size_26)),
             ],
           ),
         ),

@@ -104,7 +104,7 @@ class _CollectPageState extends State<CollectPage> {
                     collect?.name ?? '',
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: FMTextStyle.color_333333_size_42,
+                    style: FMTextStyle.color_333333_size_36,
                   ),
                 ),
                 Padding(
@@ -114,7 +114,7 @@ class _CollectPageState extends State<CollectPage> {
                   "${AppStrings.DOLLAR}${collect.retailPrice}",
                   maxLines: 1,
                   overflow: TextOverflow.ellipsis,
-                  style: FMTextStyle.color_ff5722_size_42,
+                  style: FMTextStyle.color_ff5722_size_26,
                 ),
               ],
             )),

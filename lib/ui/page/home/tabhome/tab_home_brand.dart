@@ -84,7 +84,7 @@ class TabHomeBrand extends StatelessWidget {
                       bottom: ScreenUtil().setHeight(AppDimens.DIMENS_30)),
                   child: Text(
                     AppStrings.DOLLAR + "${brand.floorPrice}",
-                    style:FMTextStyle.color_ff5722_size_42
+                    style:FMTextStyle.color_ff5722_size_26
                   )),
             ],
           ),

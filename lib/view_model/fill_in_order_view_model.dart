@@ -49,7 +49,7 @@ class FillInOrderViewModel extends BaseViewModel {
   }
 
   Future<bool> submitOrder(
-      int cartId, int addressId, String message, int couponId) async {
+      int cartId, int addressId, String message,List<int> goodsIdList, int couponId) async {
     bool isResult = false;
     var parameters = {
       AppParameters.CART_ID: cartId,
@@ -57,7 +57,8 @@ class FillInOrderViewModel extends BaseViewModel {
       AppParameters.MESSAGE: message,
       AppParameters.COUPON_ID: couponId,
       AppParameters.GROUPON_RULES_ID: 0,
-      AppParameters.GROUPON_LINK_ID: 0
+      AppParameters.GROUPON_LINK_ID: 0,
+      AppParameters.GOODS_ID_LIST:goodsIdList,
     };
     await _goodsService.submitOrder(parameters).then((response) {
       isResult = response.isSuccess ?? false;

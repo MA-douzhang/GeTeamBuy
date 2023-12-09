@@ -39,6 +39,7 @@ class NavigatorUtil {
   }
 
   static goFillInOrder(BuildContext context, int cartId) {
+    debugPrint("查询cartId$cartId");
     Application.router?.navigateTo(
         context, Routers.fillInOrder + "?cartId=$cartId",
         transition: TransitionType.inFromRight);

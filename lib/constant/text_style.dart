@@ -20,6 +20,9 @@ class FMTextStyle {
   static TextStyle color_999999_size_42 = TextStyle(
       color: AppColors.COLOR_999999,
       fontSize: ScreenUtil().setSp(AppDimens.DIMENS_42));
+  static TextStyle color_999999_size_26 = TextStyle(
+      color: AppColors.COLOR_999999,
+      fontSize: ScreenUtil().setSp(AppDimens.DIMENS_26));
 
   static TextStyle color_999999_size_36 = TextStyle(
       color: AppColors.COLOR_999999,
@@ -32,6 +35,10 @@ class FMTextStyle {
   static TextStyle color_ff5722_size_36 = TextStyle(
       color: AppColors.COLOR_FF5722,
       fontSize: ScreenUtil().setSp(AppDimens.DIMENS_36));
+
+  static TextStyle color_ff5722_size_26 = TextStyle(
+      color: AppColors.COLOR_FF5722,
+      fontSize: ScreenUtil().setSp(AppDimens.DIMENS_26));
 
   static TextStyle color_ffffff_size_48 = TextStyle(
       color: AppColors.COLOR_FFFFFF,

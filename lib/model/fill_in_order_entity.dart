@@ -6,14 +6,15 @@ class FillInOrderEntity {
 	int? couponId;
 	double? goodsTotalPrice;
 	int? addressId;
-	int? grouponPrice;
+	double? grouponPrice;
 	FillInOrderCheckedaddress? checkedAddress;
 	var couponPrice;
 	int? availableCouponLength;
 	int? freightPrice;
 	List<FillInOrderCheckedgoodslist>? checkedGoodsList;
+	List<int>? goodsIdList;
 
-	FillInOrderEntity({this.grouponRulesId, this.actualPrice, this.orderTotalPrice, this.cartId, this.couponId, this.goodsTotalPrice, this.addressId, this.grouponPrice, this.checkedAddress, this.couponPrice, this.availableCouponLength, this.freightPrice, this.checkedGoodsList});
+	FillInOrderEntity({this.grouponRulesId, this.actualPrice, this.orderTotalPrice, this.cartId, this.couponId, this.goodsTotalPrice, this.addressId, this.grouponPrice, this.checkedAddress, this.couponPrice, this.availableCouponLength, this.freightPrice, this.checkedGoodsList,this.goodsIdList});
 
 	FillInOrderEntity.fromJson(Map<String, dynamic> json) {
 		grouponRulesId = json['grouponRulesId'];
@@ -28,6 +29,9 @@ class FillInOrderEntity {
 		couponPrice = json['couponPrice'];
 		availableCouponLength = json['availableCouponLength'];
 		freightPrice = json['freightPrice'];
+		if (json['goodsIdList'] != null) {
+			goodsIdList = [];(json['goodsIdList'] as List).forEach((v) { goodsIdList?.add(v); });
+		}
 		if (json['checkedGoodsList'] != null) {
 			checkedGoodsList = [];(json['checkedGoodsList'] as List).forEach((v) { checkedGoodsList?.add(new FillInOrderCheckedgoodslist.fromJson(v)); });
 		}
@@ -52,6 +56,9 @@ class FillInOrderEntity {
 		if (this.checkedGoodsList != null) {
       data['checkedGoodsList'] =  this.checkedGoodsList?.map((v) => v.toJson()).toList();
     }
+		if (this.goodsIdList != null) {
+			data['goodsIdList'] =  this.goodsIdList?.map((v) => v.toInt()).toList();
+		}
 		return data;
 	}
 }

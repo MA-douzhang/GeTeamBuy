@@ -4,12 +4,10 @@ import '../../../constant/app_dimens.dart';
 import '../../../constant/text_style.dart';
 import 'package:flutter_screenutil/flutter_screenutil.dart';
 
-typedef OnNumberChange = Function(int number);
 
 class CartNumberView extends StatefulWidget {
-  final OnNumberChange onNumberChange;
   final _number;
-
+  final ValueChanged<int> onNumberChange;
   const CartNumberView(this._number, this.onNumberChange, {super.key});
 
   @override

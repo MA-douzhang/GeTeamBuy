@@ -188,6 +188,9 @@ class _OrderListPageState extends State<OrderListPage>
                                         width: ScreenUtil()
                                             .setWidth(AppDimens.DIMENS_200),
                                         child: TextButton(
+                                          style: ButtonStyle(
+                                              backgroundColor: MaterialStateProperty.all(
+                                                  AppColors.COLOR_FF5722)),
                                           child: Text(
                                             AppStrings.DELETE,
                                             style: FMTextStyle
@@ -209,6 +212,9 @@ class _OrderListPageState extends State<OrderListPage>
                                         width: ScreenUtil()
                                             .setWidth(AppDimens.DIMENS_200),
                                         child: TextButton(
+                                          style: ButtonStyle(
+                                              backgroundColor: MaterialStateProperty.all(
+                                                  AppColors.COLOR_FF5722)),
                                           child: Text(
                                             AppStrings.CANCEL,
                                             style: FMTextStyle
@@ -263,7 +269,7 @@ class _OrderListPageState extends State<OrderListPage>
                       children: [
                         Text(
                           AppStrings.DOLLAR + "${good.price}",
-                          style: FMTextStyle.color_ff5722_size_42,
+                          style: FMTextStyle.color_ff5722_size_26,
                         ),
                         Expanded(
                             child: Container(

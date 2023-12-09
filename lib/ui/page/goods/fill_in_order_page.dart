@@ -43,8 +43,8 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
       create: (context) => _fillInOrderViewModel,
       child: Selector<FillInOrderViewModel, FillInOrderEntity>(
           selector: (BuildContext context, FillInOrderViewModel model) {
-        return model?.fillInOrderEntity ?? FillInOrderEntity();
-      }, builder: (context, data, child) {
+            return model?.fillInOrderEntity ?? FillInOrderEntity();
+          }, builder: (context, data, child) {
         return showWidget(_fillInOrderViewModel);
       }),
     );
@@ -55,7 +55,7 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
       return _dataView(fillInOrderViewModel);
     }
     return ViewModelStateWidget.stateWidgetWithCallBack(
-        fillInOrderViewModel, (){});
+        fillInOrderViewModel, () {});
   }
 
   Widget _dataView(FillInOrderViewModel model) {
@@ -67,30 +67,34 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
         body: _contentView(model),
         bottomNavigationBar: BottomAppBar(
             child: Container(
-          margin:
+              margin:
               EdgeInsets.only(left: ScreenUtil().setWidth(AppDimens.DIMENS_30)),
-          height: ScreenUtil().setHeight(AppDimens.DIMENS_150),
-          child: Row(
-            children: <Widget>[
-              Expanded(
-                  child: Text(
-                      "${AppStrings.ACTUAL_PAY}${model.fillInOrderEntity?.orderTotalPrice}",style: FMTextStyle.color_333333_size_42,)),
-             Container(
-                  alignment: Alignment.center,
-                  width: ScreenUtil().setWidth(AppDimens.DIMENS_300),
-                  height: double.infinity,
-                  child: TextButton(
-                    style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.COLOR_FF5722)),
-                    onPressed:() => _submitOrder(),
-                    child: Text(
-                      AppStrings.PAY,
-                      style: FMTextStyle.color_ffffff_size_42,
+              height: ScreenUtil().setHeight(AppDimens.DIMENS_150),
+              child: Row(
+                children: <Widget>[
+                  Expanded(
+                      child: Text(
+                        "${AppStrings.ACTUAL_PAY}${model.fillInOrderEntity
+                            ?.orderTotalPrice}",
+                        style: FMTextStyle.color_333333_size_42,)),
+                  Container(
+                    alignment: Alignment.center,
+                    width: ScreenUtil().setWidth(AppDimens.DIMENS_300),
+                    height: double.infinity,
+                    child: TextButton(
+                      style: ButtonStyle(
+                          backgroundColor: MaterialStateProperty.all(
+                              AppColors.COLOR_FF5722)),
+                      onPressed: () => _submitOrder(),
+                      child: Text(
+                        AppStrings.PAY,
+                        style: FMTextStyle.color_ffffff_size_42,
+                      ),
                     ),
                   ),
-                ),
-            ],
-          ),
-        )));
+                ],
+              ),
+            )));
   }
 
   Widget _contentView(FillInOrderViewModel model) {
@@ -101,7 +105,8 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
             _addressWidget(model),
             DividerLineView(height: AppDimens.DIMENS_20),
             Column(
-              children: _goodsItems(model.fillInOrderEntity?.checkedGoodsList ?? []),
+              children: _goodsItems(
+                  model.fillInOrderEntity?.checkedGoodsList ?? []),
             ),
             DividerLineView(height: AppDimens.DIMENS_20),
             _remarkWidget(),
@@ -109,7 +114,8 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
             _couponWidget(model),
             DividerLineView(),
             ItemTextView(AppStrings.GOODS_TOTAL,
-                "${AppStrings.DOLLAR}${model.fillInOrderEntity?.goodsTotalPrice}"),
+                "${AppStrings.DOLLAR}${model.fillInOrderEntity
+                    ?.goodsTotalPrice}"),
             DividerLineView(),
             ItemTextView(AppStrings.FREIGHT,
                 "${AppStrings.DOLLAR}${model.fillInOrderEntity?.freightPrice}"),
@@ -145,7 +151,8 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: <Widget>[
           CachedImageView(ScreenUtil().setWidth(AppDimens.DIMENS_240),
-              ScreenUtil().setWidth(AppDimens.DIMENS_240), checkedGoods.picUrl ?? ''),
+              ScreenUtil().setWidth(AppDimens.DIMENS_240),
+              checkedGoods.picUrl ?? ''),
           Padding(
             padding: EdgeInsets.only(
                 left: ScreenUtil().setWidth(AppDimens.DIMENS_20)),
@@ -163,7 +170,7 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
                       top: ScreenUtil().setHeight(AppDimens.DIMENS_10))),
               Text(
                 checkedGoods.specifications?.first ?? '',
-                style:  FMTextStyle.color_999999_size_42,
+                style: FMTextStyle.color_999999_size_42,
               ),
               Padding(
                   padding: EdgeInsets.only(
@@ -176,9 +183,9 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
           ),
           Expanded(
               child: Container(
-            alignment: Alignment.centerRight,
-            child: Text("${AppStrings.GOODS_NUMBER}${checkedGoods.number}"),
-          ))
+                alignment: Alignment.centerRight,
+                child: Text("${AppStrings.GOODS_NUMBER}${checkedGoods.number}"),
+              ))
         ],
       ),
     );
@@ -197,82 +204,84 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
           margin: EdgeInsets.all(0),
           child: model.fillInOrderCheckAddress?.id != 0
               ? InkWell(
-                  onTap: () {
-                    NavigatorUtil.goAddress(context, 1)
-                        ?.then((value) => model.updateAddress(value));
-                  },
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: <Widget>[
-                      Column(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: <Widget>[
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: <Widget>[
-                              Text(
-                                model.fillInOrderCheckAddress?.name ?? '',
-                                style:FMTextStyle.color_333333_size_42
-                              ),
-                              Padding(
-                                padding: EdgeInsets.only(
-                                    left: ScreenUtil()
-                                        .setHeight(AppDimens.DIMENS_30)),
-                              ),
-                              Text(
-                                model.fillInOrderCheckAddress?.tel ??'',
-                                style: FMTextStyle.color_333333_size_42
-                              ),
-                            ],
-                          ),
-                          Padding(
-                            padding: EdgeInsets.only(
-                                top: ScreenUtil()
-                                    .setHeight(AppDimens.DIMENS_20)),
-                          ),
-                          Text(
-                            '摩恩上课的卡死',
-                            // model.fillInOrderCheckAddress.province ?? '' +
-                            //     model.fillInOrderCheckAddress?.city ?? '' +
-                            //     model.fillInOrderCheckAddress?.county ?? '' +
-                            //     model.fillInOrderCheckAddress?.addressDetail ?? '',
+            onTap: () {
+              NavigatorUtil.goAddress(context, 1)
+                  ?.then((value) => model.updateAddress(value));
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: <Widget>[
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: <Widget>[
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.start,
+                      children: <Widget>[
+                        Text(
+                            model.fillInOrderCheckAddress?.name ?? '',
                             style: FMTextStyle.color_333333_size_42
-                          ),
-                        ],
-                      ),
-                      Expanded(
-                          child: Container(
-                              alignment: Alignment.centerRight,
-                              child: RightArrow()))
-                    ],
-                  ),
-                )
-              : InkWell(
-                  onTap: () {
-                    NavigatorUtil.goAddress(context, 1)?.then((value) {
-                      model.updateAddress(value);
-                    });
-                  },
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    children: <Widget>[
-                      Text(
-                        AppStrings.PLEASE_SELECT_ADDRESS,
-                        style: FMTextStyle.color_999999_size_42
-                      ),
-                      Expanded(
-                          child: Container(
-                              alignment: Alignment.centerRight,
-                              child: RightArrow()))
-                    ],
-                  ),
+                        ),
+                        Padding(
+                          padding: EdgeInsets.only(
+                              left: ScreenUtil()
+                                  .setHeight(AppDimens.DIMENS_30)),
+                        ),
+                        Text(
+                            model.fillInOrderCheckAddress?.tel ?? '',
+                            style: FMTextStyle.color_333333_size_42
+                        ),
+                      ],
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          top: ScreenUtil()
+                              .setHeight(AppDimens.DIMENS_20)),
+                    ),
+                    Text(
+                        _buildStr(
+                            model.fillInOrderCheckAddress?.province ?? '',
+                            model.fillInOrderCheckAddress?.city ?? '', model
+                                .fillInOrderCheckAddress?.county ?? '',
+                            model.fillInOrderCheckAddress?.addressDetail ?? ''
+                        ),
+                            style: FMTextStyle.color_333333_size_42
+                    ),
+                  ],
                 ),
+                Expanded(
+                    child: Container(
+                        alignment: Alignment.centerRight,
+                        child: RightArrow()))
+              ],
+            ),
+          )
+              : InkWell(
+            onTap: () {
+              NavigatorUtil.goAddress(context, 1)?.then((value) {
+                model.updateAddress(value);
+              });
+            },
+            child: Row(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Text(
+                    AppStrings.PLEASE_SELECT_ADDRESS,
+                    style: FMTextStyle.color_999999_size_42
+                ),
+                Expanded(
+                    child: Container(
+                        alignment: Alignment.centerRight,
+                        child: RightArrow()))
+              ],
+            ),
+          ),
         );
       }, selector:
           (BuildContext context, FillInOrderViewModel fillInOrderViewModel) {
-        return fillInOrderViewModel?.fillInOrderCheckAddress ?? FillInOrderCheckedaddress() ;
+        return fillInOrderViewModel?.fillInOrderCheckAddress ??
+            FillInOrderCheckedaddress();
       }),
     );
   }
@@ -294,31 +303,32 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
             height: ScreenUtil().setHeight(AppDimens.DIMENS_60),
           ),
           Text(
-            AppStrings.COUPON,
-            style: FMTextStyle.color_333333_size_42
+              AppStrings.COUPON,
+              style: FMTextStyle.color_333333_size_42
           ),
           Expanded(
               child: Container(
-            child: Row(
-              mainAxisAlignment: MainAxisAlignment.end,
-              children: <Widget>[
-                model.fillInOrderEntity?.availableCouponLength == 0
-                    ? Text(
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.end,
+                  children: <Widget>[
+                    model.fillInOrderEntity?.availableCouponLength == 0
+                        ? Text(
                         AppStrings.NOT_AVAILABLE_COUPON,
                         style: FMTextStyle.color_999999_size_42
-                      )
-                    : Text(
-                        "${model.fillInOrderEntity?.couponPrice}${AppStrings.MONEY_UNIT}",
+                    )
+                        : Text(
+                        "${model.fillInOrderEntity?.couponPrice}${AppStrings
+                            .MONEY_UNIT}",
                         style: FMTextStyle.color_333333_size_42
-                      ),
-                Padding(
-                  padding: EdgeInsets.only(
-                      left: ScreenUtil().setWidth(AppDimens.DIMENS_20)),
+                    ),
+                    Padding(
+                      padding: EdgeInsets.only(
+                          left: ScreenUtil().setWidth(AppDimens.DIMENS_20)),
+                    ),
+                    RightArrow()
+                  ],
                 ),
-                RightArrow()
-              ],
-            ),
-          ))
+              ))
         ],
       ),
     );
@@ -336,34 +346,43 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
         mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
           Text(
-            AppStrings.REMARK,
-            style: FMTextStyle.color_333333_size_42
+              AppStrings.REMARK,
+              style: FMTextStyle.color_333333_size_42
           ),
           Expanded(
               child: Container(
-            alignment: Alignment.topLeft,
-            margin: EdgeInsets.only(
-                left: ScreenUtil().setWidth(AppDimens.DIMENS_60)),
-            height: double.infinity,
-            child: TextField(
-              maxLines: 4,
-              decoration: InputDecoration(
-                contentPadding: EdgeInsets.zero,
-                hintText: AppStrings.REMARK_HINT,
-                border: OutlineInputBorder(borderSide: BorderSide.none),
-                hintStyle:FMTextStyle.color_999999_size_42,
-                focusedBorder: OutlineInputBorder(
-                    borderSide: BorderSide(
-                        color: Colors.white,
-                        width: ScreenUtil().setHeight(AppDimens.DIMENS_1))),
-              ),
-              style: FMTextStyle.color_333333_size_42,
-              controller: _remarkController,
-            ),
-          ))
+                alignment: Alignment.topLeft,
+                margin: EdgeInsets.only(
+                    left: ScreenUtil().setWidth(AppDimens.DIMENS_60)),
+                height: double.infinity,
+                child: TextField(
+                  maxLines: 4,
+                  decoration: InputDecoration(
+                    contentPadding: EdgeInsets.zero,
+                    hintText: AppStrings.REMARK_HINT,
+                    border: OutlineInputBorder(borderSide: BorderSide.none),
+                    hintStyle: FMTextStyle.color_999999_size_42,
+                    focusedBorder: OutlineInputBorder(
+                        borderSide: BorderSide(
+                            color: Colors.white,
+                            width: ScreenUtil().setHeight(AppDimens.DIMENS_1))),
+                  ),
+                  style: FMTextStyle.color_333333_size_42,
+                  controller: _remarkController,
+                ),
+              ))
         ],
       ),
     );
+  }
+
+  String _buildStr(String province,String city,String county,String addressDetail) {
+    StringBuffer stringBuffer = new StringBuffer();
+    stringBuffer.write(province);
+    stringBuffer.write(city);
+    stringBuffer.write(county);
+    stringBuffer.write(addressDetail);
+    return stringBuffer.toString();
   }
 
   _submitOrder() {
@@ -373,10 +392,11 @@ class _FillInOrderPageState extends State<FillInOrderPage> {
     }
     _fillInOrderViewModel
         .submitOrder(
-            _fillInOrderViewModel.fillInOrderEntity?.cartId ?? 0,
-            _fillInOrderViewModel.fillInOrderCheckAddress?.id ?? 0,
-            _remarkController.value.toString(),
-            _fillInOrderViewModel.fillInOrderEntity?.couponId ?? 0)
+        _fillInOrderViewModel.fillInOrderEntity?.cartId ?? 0,
+        _fillInOrderViewModel.fillInOrderCheckAddress?.id ?? 0,
+        _remarkController.value.toString(),
+        _fillInOrderViewModel.fillInOrderEntity?.goodsIdList ?? [0],
+        _fillInOrderViewModel.fillInOrderEntity?.couponId ?? 0)
         .then((value) {
       if (value) {
         //https://www.jianshu.com/p/9d858596a30a

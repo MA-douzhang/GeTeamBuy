@@ -16,6 +16,7 @@ class AppParameters {
   static const String NUMBER = "number";
   static const String GROUPON_RULES_ID = "grouponRulesId";
   static const String GROUPON_LINK_ID = "grouponLinkId";
+  static const String GOODS_ID_LIST = "goodsIdList";
   static const String CART_ID = "cartId";
   static const String ADDRESS_ID = "addressId";
   static const String COUPON_ID = "couponId";

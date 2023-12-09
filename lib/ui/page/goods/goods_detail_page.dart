@@ -442,7 +442,9 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
                               alignment: Alignment.centerRight,
                               child:
                                   CartNumberView(_number, (number){
-                                    _number=number;
+                                    setState(() {
+                                      _number=number;
+                                    });
                                   }),
                             ),
                           ),
@@ -511,7 +513,7 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
             Navigator.of(context).pop(); //隐藏弹出框
             NavigatorUtil.goFillInOrder(context, response);
           } else {
-            ToastUtil.showToast(_cartViewModel?.errorMessage);
+            ToastUtil.showToast(_goodsDetailViewModel?.errorMessage);
           }
         });
       } else {
@@ -569,10 +571,4 @@ class _GoodsDetailPageState extends State<GoodsDetailPage> {
     return specificationsWidget;
   }
 
-  getGoodsNum(number) {
-    setState(() {
-      _number = number;
-      print("_number");
-    });
-  }
 }

@@ -138,9 +138,9 @@ class _FootPrintPageState extends State<FootPrintPage> {
                         left: ScreenUtil().setWidth(AppDimens.DIMENS_20),
                         right: ScreenUtil().setWidth(AppDimens.DIMENS_20)),
                     child: Text(goods.name ?? '',
-                        maxLines: 1,
+                        maxLines: 4,
                         overflow: TextOverflow.ellipsis,
-                        style: FMTextStyle.color_333333_size_42),
+                        style: FMTextStyle.color_333333_size_36),
                   ),
                   Padding(
                       padding: EdgeInsets.only(
@@ -149,7 +149,7 @@ class _FootPrintPageState extends State<FootPrintPage> {
                     "${AppStrings.DOLLAR}${goods.retailPrice}",
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
-                    style: FMTextStyle.color_ff5722_size_42,
+                    style: FMTextStyle.color_ff5722_size_26,
                   ),
                 ],
               )),

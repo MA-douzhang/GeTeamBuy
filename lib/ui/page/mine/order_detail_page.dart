@@ -281,7 +281,7 @@ class _OrderDetailPageState extends State<OrderDetailPage> {
                       children: [
                         Text(
                           AppStrings.DOLLAR + "${good.price}",
-                          style: FMTextStyle.color_ff5722_size_42,
+                          style: FMTextStyle.color_ff5722_size_26,
                         ),
                         Expanded(
                             child: Container(

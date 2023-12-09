@@ -174,7 +174,7 @@ class _ProjectSelectionDetailViewState
                       top: ScreenUtil().setHeight(AppDimens.DIMENS_30)),
                   child: Text(
                     AppStrings.DOLLAR + "${related.price}",
-                    style:FMTextStyle.color_ff5722_size_42
+                    style:FMTextStyle.color_ff5722_size_26
                   )),
             ],
           ),

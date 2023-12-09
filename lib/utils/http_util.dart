@@ -35,8 +35,8 @@ class HttpUtil {
             if(token !=null){
               options.headers.addAll({AppStrings.TOKEN: token});
             }
-            options.connectTimeout= Duration(seconds: 5);
-            options.receiveTimeout= Duration(seconds: 5);
+            options.connectTimeout= Duration(seconds: 60);
+            options.receiveTimeout= Duration(seconds: 60);
             debugPrint("token================$token" );
           });
           return handler.next(options);

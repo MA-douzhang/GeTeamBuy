@@ -322,8 +322,8 @@ class _AddressDetailPageState extends State<AddressDetailPage> {
             right: ScreenUtil().setWidth(AppDimens.DIMENS_30)),
         width: double.infinity,
         child: TextButton(
+          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.COLOR_FF5722)),
           onPressed: () => _submit(addressViewModel),
-
           child: Text(
             AppStrings.SAVE,
             style: FMTextStyle.color_ffffff_size_42,

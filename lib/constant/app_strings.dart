@@ -1,7 +1,7 @@
 class AppStrings {
   static const String OPEN_DOOR = "开启购物之旅";
-  static const String APP_NAME = "Flutter Mall Plus";
-  static const String TOKEN = "X-Litemall-Token";
+  static const String APP_NAME = "吉商城";
+  static const String TOKEN = "X-Gemall-Token";
   static const String NICK_NAME = "NICK_NAME";
   static const String USER_ID = "USER_ID";
   static const String HEAD_URL = "HEAD_URL";
@@ -50,12 +50,12 @@ class AppStrings {
   static const String PASSWORD_HINT = "请输入密码";
   static const String ACCOUNT = "账号";
   static const String PASSWORD = "密码";
-  static const String LOGIN_WELCOME = "欢迎登录FM商城";
-  static const String LOGIN_APP_INTRODUCE = "Flutter开发的在线商城系统";
+  static const String LOGIN_WELCOME = "欢迎登录吉商城";
+  static const String LOGIN_APP_INTRODUCE = "Flutter开发的吉商城系统";
   static const String LOGIN = "登录";
   static const String LOADING = "正在加载中...";
   static const String LOGINING = "登录中...";
-  static const String REGISTER_WELCOME = "欢迎注册FM商城成为尊贵的VIP会员";
+  static const String REGISTER_WELCOME = "欢迎注册吉商城成为尊贵的VIP会员";
   static const String IMMEDIATELY_REGISTER = "立即注册";
   static const String REGISTER = "注册";
   static const String REGISTER_SUCCESS = "注册成功";
@@ -140,15 +140,15 @@ class AppStrings {
   static const String MINE_COLLECT = "我的收藏";
   static const String MINE_CANCEL_COLLECT = "是否确定取消收藏此商品?";
   static const String MINE_ABOUT_US_CONTENT =
-      "Flutter Mall Plus 是一个企业级商城Flutter项目，Flutter Mall Plus 是在Flutter Mall 的基础上进行了重构，整个项目采用MVVM，通过学习Flutter Mall Plus项目可以让读者达到具有开发企业项目的实战能力";
+      "吉商城 是一个企业级商城Flutter项目，吉商城 是在Flutter Mall 的基础上进行了重构，整个项目采用MVVM";
   static const String MINE_ABOUT_AUTHOR_TITLE = "作者";
-  static const String MINE_ABOUT_AUTHOR = "路由新";
+  static const String MINE_ABOUT_AUTHOR = "朱洮雨";
   static const String MINE_ABOUT_EMAIL_TITLE = "邮箱";
-  static const String MINE_ABOUT_EMAIL = "lizhenghuatoec@gmail.com";
+  static const String MINE_ABOUT_EMAIL = "22131410038@qq.com";
   static const String MINE_ABOUT_QQ_TITLE = "QQ";
-  static const String MINE_ABOUT_QQ = "443765662";
+  static const String MINE_ABOUT_QQ = "22131410038";
   static const String MINE_ABOUT_WX_TITLE = "微信";
-  static const String MINE_ABOUT_WX = "Flutter-LYX";
+  static const String MINE_ABOUT_WX = "zhutaoyu**";
   static const String PLEASE_SELECT_FEEDBACK_TYPE = "请选择反馈类型";
   static const String FEEDBACK_DYSFUNCTION = "功能异常";
   static const String FEEDBACK_SUGGESTIONS_OPTIMIZATION = "优化建议";

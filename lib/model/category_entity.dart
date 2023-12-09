@@ -41,7 +41,6 @@ class CategoryEntity {
 
   CategoryEntity.fromJson(Map<String, dynamic> json) {
     picUrl = json['picUrl'];
-    deleted = json['deleted'];
     keywords = json['keywords'];
     addTime = json['addTime'];
     level = json['level'];
@@ -52,6 +51,7 @@ class CategoryEntity {
     id = json['id'];
     iconUrl = json['iconUrl'];
     desc = json['desc'];
+    deleted = json['deleted'];
   }
 
   Map<String, dynamic> toJson() {

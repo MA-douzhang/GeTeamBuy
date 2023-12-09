@@ -75,7 +75,6 @@ class _TabCartPageState extends State<TabCartPage> {
                   alignment: Alignment.centerRight,
                   child: TextButton(
                     style: ButtonStyle(backgroundColor: MaterialStateProperty.all(AppColors.COLOR_FF5722)),
-
                     onPressed: () {
                       NavigatorUtil.goFillInOrder(context, 0);
                     },
@@ -183,7 +182,7 @@ class _TabCartPageState extends State<TabCartPage> {
                       Row(
                         children: [
                           Text("${AppStrings.DOLLAR}${cartBean.price}",
-                              style: FMTextStyle.color_ff5722_size_42),
+                              style: FMTextStyle.color_ff5722_size_26),
                           Expanded(
                               child: Container(
                             padding: EdgeInsets.only(
