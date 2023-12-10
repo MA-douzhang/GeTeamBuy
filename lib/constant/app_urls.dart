@@ -1,6 +1,6 @@
 
 class AppUrls{
- static const String BASE_URL='http://n2t6f3.natappfree.cc/api'; //线上服务
+ static const String BASE_URL='http://yv2j9b.natappfree.cc/api'; //线上服务
   // static const String BASE_URL = 'http://192.168.1.134:9090/api';//测试服务
   static const String HOME_URL=BASE_URL+'/home/index';//首页数据
   static const String BANNER_URL = BASE_URL + '/home/banner'; //获取首页banner图
