@@ -23,7 +23,7 @@ class CartViewModel extends BaseViewModel {
     bool result = false;
     var parameters = {
       AppParameters.GOODS_ID: goodsId,
-      AppParameters.PRODUCT_ID: productId,
+      AppParameters.PRODUCT_ID: productId+1,
       AppParameters.NUMBER: number
     };
     await _cartService.addCart(parameters).then((response) {

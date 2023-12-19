@@ -64,7 +64,7 @@ class GoodsDetailViewModel extends BaseViewModel {
     int result = 0;
     var parameters = {
       AppParameters.GOODS_ID: goodsId,
-      AppParameters.PRODUCT_ID: productId,
+      AppParameters.PRODUCT_ID: productId+1,
       AppParameters.NUMBER: number,
       AppParameters.GROUPON_RULES_ID: 0,
       AppParameters.GROUPON_LINK_ID: 0
